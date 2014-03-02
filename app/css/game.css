@@ -1,0 +1,106 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #bdf;
+}
+
+.actorstack {
+    padding: 0;
+    margin: 0;
+}
+
+.actor {
+    position: relative;
+    background: #def;
+    box-sizing: border-box;
+    margin: 0.5rem 0;
+    display: block;
+    height: 4rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    transition: height 0.5s;
+}
+
+.actor .shadow {
+    color: #9cf;
+    position: absolute;
+    opacity: 0.33;
+    top: 0;
+    left: 2rem;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.actor * {
+    box-sizing: border-box;
+}
+
+.actor.expanded {
+    height: 16rem;
+}
+
+.actor .summary {
+    height: 4rem;
+    white-space: nowrap;
+}
+
+.actor .detail {
+    height: 12rem;
+    white-space: nowrap;
+    border-top: 1px solid #9cf;
+}
+
+.actor section {
+    /*display: inline-block;*/
+    position: relative;
+    float: left;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(90deg, rgba(255,255,255, 0) 66%,rgba(255,255,255, 1) 100%),
+                linear-gradient(180deg, rgba(255,255,255, 0) 66%,rgba(255,255,255, 1) 100%)
+    ;
+}
+
+.actor section.controls {
+    padding: 0.1rem;
+    background: rgba(255,255,255, 0.66);
+}
+.actor section.controls button {
+    float: left;
+    clear: left;
+    padding: 0;
+    margin: 0.1rem;
+    height: 1.2rem;
+    width: 20px;
+    line-height: 1.1rem;
+    text-align: center;
+}
+
+.actor button.expand:before {
+    font-size: 0.75rem;
+    content: '+';
+}
+
+.actor.expanded button.expand:before {
+    font-size: 0.75rem;
+    content: '-';
+}
+
+.actor button.doneturn:before {
+    font-size: 0.75rem;
+    content: 'v';
+}
+
+.actor section.ident .name {
+    display: block;
+    line-height: 1.1em;
+}
+
+.actor section.ident .descphrase {
+    font-size: 80%;
+    display: block;
+    line-height: 1.1em;
+}

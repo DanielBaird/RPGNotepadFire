@@ -4,10 +4,13 @@
   <meta charset="utf-8">
   <title>My AngularJS App</title>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/game.css"/>
 </head>
 <body ng-cloak-auth class="hide">
 
   <ul class="menu">
+    <li><a href="#/game/setup">game setup</a></li>
+    <li><a href="#/game/play">game play</a></li>
     <li><a href="#/home">home</a></li>
     <li><a href="#/chat">chat</a></li>
     <li ng-show-auth="logout,error"><a href="#/login">login</a></li>
@@ -16,7 +19,7 @@
 
   <div ng-view></div>
 
-  <div>AngularFire-seed v<span app-version></span></div>
+  <div>rpgNotepad v<span app-version></span></div>
 
   <script src="https://cdn.firebase.com/v0/firebase.js"></script>
   <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>

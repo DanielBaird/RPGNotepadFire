@@ -1,0 +1,15 @@
+<h2>Setup Game</h2>
+
+<form>
+  <input placeholder="Actor name..." ng-model="newActorName">
+  <input placeholder="Actor description..." ng-model="newActorDesc">
+  <button type="submit" ng-click="addActor()">add them</button>
+</form>
+
+<ul id="actors" ng-show="actors">
+    <li ng-repeat="actor in actors | orderByPriority">{{ actor.name }} <button type="button" ng-click="delActor(actor.$id)">delete</button></li>
+</ul>
+
+<p>
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p>

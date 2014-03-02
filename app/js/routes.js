@@ -5,6 +5,16 @@ angular.module('rpgNotepad.routes', ['ngRoute'])
    // configure views; the authRequired parameter is used for specifying pages
    // which should only be available while logged in
    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.when('/game/setup', {
+         templateUrl: 'partials/gamesetup.html',
+         controller: 'GameCtrl'
+      });
+
+      $routeProvider.when('/game/play', {
+         templateUrl: 'partials/gameplay.html',
+         controller: 'GameCtrl'
+      });
+
       $routeProvider.when('/home', {
          templateUrl: 'partials/home.html',
          controller: 'HomeCtrl'

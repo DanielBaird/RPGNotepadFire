@@ -3,6 +3,49 @@
 /* Controllers */
 
 angular.module('rpgNotepad.controllers', [])
+
+  .controller('GameCtrl', ['$scope', 'syncData', function($scope, syncData) {
+
+      $scope.newActor = null;
+
+      // add the array into $scope.actors
+      $scope.actors = syncData('actors');
+
+      // add new actors to the list
+      $scope.addActor = function() {
+         if ($scope.newActorName) {
+            $scope.actors.$add({
+               name: $scope.newActorName,
+               descphrase: $scope.newActorDesc,
+               active: false
+            });
+            $scope.newActorName = null;
+            $scope.newActorDesc = null;
+         }
+      };
+
+      // remove an actor
+      $scope.delActor = function(actorid) {
+         console.log('deleting actor with $id ' + actorid);
+         $scope.actors.$remove(actorid);
+      };
+
+      // "activate" an actor on the list
+      $scope.toggleActorActivation = function(actorid) {
+         var actor = $scope.actors[actorid];
+         actor.active = !actor.active;
+      };
+
+      // complete an actor's turn
+      $scope.completeTurn = function(actorid) {
+         var actor = $scope.actors[actorid];
+         // push to the end, remove from the beginning
+         $scope.actors.$add(actor);
+         $scope.actors.$remove(actorid);
+      };
+
+   }])
+
    .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])

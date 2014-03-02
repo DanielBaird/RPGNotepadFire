@@ -1,0 +1,23 @@
+<h2>Play Game</h2>
+
+<ul ng-show="actors" class="actorstack">
+    <li ng-repeat="actor in actors | orderByPriority"
+        ng-class="(actor.active) ? 'actor expanded' : 'actor'">
+        <div class="summary">
+            <span class="shadow">{{ actor.name }}</span>
+            <section class="controls">
+                <button type="button" ng-click="toggleActorActivation(actor.$id)" class="expand"></button>
+                <button type="button" ng-click="completeTurn(actor.$id)" class="doneturn"></button>
+            </section>
+            <section class="ident">
+                <span class="name">{{ actor.name }}</span>
+                <span class="descphrase">{{ actor.descphrase }}</span>
+            </section>
+        </div>
+        <div class="detail">
+            <section class="dummy">
+                more detail here..
+            </section>
+        </div>
+    </li>
+</ul>
